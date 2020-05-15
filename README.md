@@ -1,7 +1,7 @@
-# Google Play Store Analytics
+# Capstone Analytics - UI with Flask
 
 ## Introduction
-Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Academy Data Analytics Specialization. Deliverables yang diharapkan adalah Anda dapat membangun sebuah aplikasi web sederhana (dashboard) menggunakan framework Flask. Capstone ini akan fokus pada tampilan user interface Flask. 
+Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Academy Data Analytics Specialization. Deliverables yang diharapkan adalah web app sederhana dengan menggunakan Flask framework.
 
 ## Data Summary
 Data yang digunakan pada capstone project ini adalah data hasil scraping dari Google Playstore App. Data Google Playstore App terdiri dari beberapa variabe dengan rincian sebagai berikut:
@@ -25,10 +25,6 @@ Data yang digunakan pada capstone project ini adalah data hasil scraping dari Go
 - Pandas
 - Numpy
 
-Semua modul tersebut dapat Anda install dengan cara :
-```
-pip install -r requirements.txt
-```
 
 ## Rubrics
 Pada capstone ini, Anda diharapkan untuk dapat membangun sebuah aplikasi Flask yang fokus pada tampilan user interface. Langkah pertama yang harus Anda lakukan adalah silahkan download atau clone repositori ini. File pada repositori ini merupakan sebuah skeleton untuk membuat sebuah dashboard aplikasi Flask. Pada bagian `app.py` dan `templates/index.html` ada beberapa bagian yang rumpang dan harus Anda lengkapi. Beberapa bagian yang harus diperhatikan adalah sebagai berikut:

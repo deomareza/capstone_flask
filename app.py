@@ -77,7 +77,7 @@ def index():
         # Silahkan melakukan agregasi data yang tepat menggunakan groupby untuk menampilkan 10 aplikasi yang diurutkan berdasarkan 
         # jumlah Review pengguna. Tabel yang ditampilkan terdiri dari 4 kolom yaitu nama Category, nama App, total Reviews, dan rata-rata Rating.
         # Agregasi Anda dinilai benar jika hasilnya sama dengan tabel yang terlampir pada file ini
-        'rev_table' : df2[['App', 'Category', 'Reviews', 'Rating']].groupby('App').agg({'Reviews' : 'sum', 'Rating' : 'mean'}).sort_values('Reviews', ascending=False).head(10).\
+        'rev_table' : df2[['App', 'Category', 'Reviews', 'Rating']].groupby('App').agg({'Reviews' : 'sum', 'Rating' : 'mean'}).sort_values('Reviews', ascending=False).reset_index().head(10).\
             to_html(classes=['table thead-light table-striped table-bordered table-hover table-sm'])
     }
 
@@ -146,12 +146,30 @@ def index():
     result3 = str(figdata_png)[2:-1]
 
     ## Buatlah sebuah plot yang menampilkan insight di dalam data 
-    ____________________________
-    ____________________________
-    ____________________________
+    # 2. Paid apps - Price Spread across genre
+    # 3. Content Rating spread
+    
+    # 1. Categories with the lowest average ratings
+    
+    data = df2.groupby('Category').mean()
+    plt.figure(figsize=(5,5))
+    plt.scatter(data['Rating'], data['Size']/1000000, s = data['Price']*100, alpha=0.7)
+    plt.xlabel('Average Rating')
+    plt.ylabel('Average Size in MB')
+    plt.savefig('bigger_better.png',bbox_inches="tight")
+    
+    figfile = BytesIO()
+    plt.savefig(figfile, format='png')
+    figfile.seek(0)
+    figdata_png = base64.b64encode(figfile.getvalue())
+    result4 = str(figdata_png)[2:-1]
+
+
+    # Content Rating Installs number spread
+    
 
     # Tambahkan hasil result plot pada fungsi render_template()
-    return render_template('index.html', stats=stats, result=result, result2=result2, result3=result3)
+    return render_template('index.html', stats=stats, result=result, result2=result2, result3=result3, result4 = result4)
 
 if __name__ == "__main__": 
     app.run(debug=True)
