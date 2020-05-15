@@ -146,10 +146,7 @@ def index():
     result3 = str(figdata_png)[2:-1]
 
     ## Buatlah sebuah plot yang menampilkan insight di dalam data 
-    # 2. Paid apps - Price Spread across genre
-    # 3. Content Rating spread
-    
-    # 1. Categories with the lowest average ratings
+    # Size vs Rating
     
     data = df2.groupby('Category').mean()
     plt.figure(figsize=(5,5))
@@ -164,9 +161,6 @@ def index():
     figdata_png = base64.b64encode(figfile.getvalue())
     result4 = str(figdata_png)[2:-1]
 
-
-    # Content Rating Installs number spread
-    
 
     # Tambahkan hasil result plot pada fungsi render_template()
     return render_template('index.html', stats=stats, result=result, result2=result2, result3=result3, result4 = result4)
